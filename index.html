@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#355c5d" />
+  <title>Alles für Brah, von Aylin</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+    <section id="welcomeScreen" class="screen welcome-screen active" aria-labelledby="welcomeTitle">
+      <div class="welcome-card">
+        <div class="brand-mark" aria-hidden="true">♥</div>
+        <p class="eyebrow">Ein persönlicher Essensplaner</p>
+        <h1 id="welcomeTitle">Alles für Brah,<br><span>von Aylin</span></h1>
+        <p class="welcome-copy">Gesunde, kindgerechte Essensideen – liebevoll zusammengestellt und ganz einfach auswählbar.</p>
+        <button id="playMemoBtn" class="primary-btn pulse" type="button">🔊 Drück mich</button>
+        <p class="microcopy">Der Button muss gedrückt werden, um fortzufahren.</p>
+        <div id="memoStatus" class="status-message" aria-live="polite"></div>
+        <button id="continueBtn" class="secondary-btn hidden" type="button">Weiter zur App</button>
+        <audio id="memoAudio" preload="auto" src="assets/notiz.mp3"></audio>
+      </div>
+    </section>
+
+    <section id="passwordScreen" class="screen" aria-labelledby="passwordTitle">
+      <div class="auth-card">
+        <div class="brand-mark small" aria-hidden="true">🔐</div>
+        <p class="eyebrow">Geschützter Bereich</p>
+        <h2 id="passwordTitle">Passwort eingeben</h2>
+        <p>Nur für Brah bestimmt.</p>
+        <label for="passwordInput">Passwort</label>
+        <div class="password-row">
+          <input id="passwordInput" type="password" autocomplete="current-password" placeholder="Passwort eingeben" />
+          <button id="togglePassword" class="icon-btn" type="button" aria-label="Passwort anzeigen">👁️</button>
+        </div>
+        <button id="loginBtn" class="primary-btn" type="button">Zugang öffnen</button>
+        <div id="loginStatus" class="status-message" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <main id="mainApp" class="screen app-screen" aria-label="Kinderessen Planer">
+      <header class="app-header">
+        <div>
+          <p class="eyebrow">Kinderessen ab 1 Jahr</p>
+          <h2>Was darf es heute sein?</h2>
+        </div>
+        <button id="logoutBtn" class="ghost-btn" type="button">Abmelden</button>
+      </header>
+
+      <nav class="mode-tabs" aria-label="Modus auswählen">
+        <button class="tab-btn active" data-tab="single" type="button">🎲 Einzelnes Gericht</button>
+        <button class="tab-btn" data-tab="weekly" type="button">📅 Wochenplan</button>
+      </nav>
+
+      <section id="singlePanel" class="panel active">
+        <div class="control-card">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Filter</p>
+              <h3>Was passt für euch?</h3>
+            </div>
+            <button id="resetFiltersBtn" class="text-btn" type="button">Zurücksetzen</button>
+          </div>
+
+          <div class="filter-grid">
+            <label>Alter
+              <select id="ageFilter">
+                <option value="1">ab 1 Jahr</option>
+                <option value="2">ab 2 Jahren</option>
+                <option value="3">ab 3 Jahren</option>
+              </select>
+            </label>
+            <label>Mahlzeit
+              <select id="mealFilter">
+                <option value="all">Alle Mahlzeiten</option>
+                <option value="fruehstueck">Frühstück</option>
+                <option value="mittagessen">Mittagessen</option>
+                <option value="abendessen">Abendessen</option>
+                <option value="snack">Snack</option>
+              </select>
+            </label>
+            <label>Maximale Zeit
+              <select id="timeFilter">
+                <option value="999">Egal</option>
+                <option value="15">15 Minuten</option>
+                <option value="30">30 Minuten</option>
+                <option value="45">45 Minuten</option>
+              </select>
+            </label>
+          </div>
+
+          <fieldset>
+            <legend>Ernährung & Ausschlüsse</legend>
+            <div class="check-grid">
+              <label class="check-item"><input type="checkbox" value="vegetarisch" class="diet-filter"> Ohne Fleisch</label>
+              <label class="check-item"><input type="checkbox" value="vegan" class="diet-filter"> Vegan</label>
+              <label class="check-item"><input type="checkbox" value="ohne-ei" class="diet-filter"> Ohne Ei</label>
+              <label class="check-item"><input type="checkbox" value="ohne-milch" class="diet-filter"> Ohne Milch</label>
+              <label class="check-item"><input type="checkbox" value="glutenfrei" class="diet-filter"> Glutenfrei</label>
+              <label class="check-item"><input type="checkbox" value="ohne-nuesse" class="diet-filter"> Ohne Nüsse</label>
+            </div>
+          </fieldset>
+
+          <button id="randomRecipeBtn" class="primary-btn wide" type="button">🎲 Gericht zufällig auswählen</button>
+        </div>
+
+        <article id="recipeResult" class="result-card empty-state" aria-live="polite">
+          <div class="empty-icon">🥕</div>
+          <h3>Noch kein Gericht gewählt</h3>
+          <p>Wähle deine Filter und lass dich überraschen.</p>
+        </article>
+      </section>
+
+      <section id="weeklyPanel" class="panel">
+        <div class="control-card">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Wochenplan</p>
+              <h3>Plane 7 Tage</h3>
+            </div>
+          </div>
+
+          <div class="weekly-options">
+            <label class="choice-card selected">
+              <input type="radio" name="weeklyMode" value="surprise" checked>
+              <span class="choice-icon">✨</span>
+              <span><strong>Lass mich überraschen</strong><small>Die App stellt automatisch 7 unterschiedliche Gerichte zusammen.</small></span>
+            </label>
+            <label class="choice-card">
+              <input type="radio" name="weeklyMode" value="select">
+              <span class="choice-icon">📝</span>
+              <span><strong>Ich möchte auswählen</strong><small>Du erhältst pro Tag mehrere Vorschläge und wählst selbst.</small></span>
+            </label>
+          </div>
+
+          <div class="filter-grid compact">
+            <label>Alter
+              <select id="weeklyAgeFilter">
+                <option value="1">ab 1 Jahr</option>
+                <option value="2">ab 2 Jahren</option>
+                <option value="3">ab 3 Jahren</option>
+              </select>
+            </label>
+            <label>Ernährung
+              <select id="weeklyDietFilter">
+                <option value="all">Alles</option>
+                <option value="vegetarisch">Ohne Fleisch</option>
+                <option value="vegan">Vegan</option>
+              </select>
+            </label>
+            <label>Maximale Zeit
+              <select id="weeklyTimeFilter">
+                <option value="999">Egal</option>
+                <option value="20">20 Minuten</option>
+                <option value="30">30 Minuten</option>
+                <option value="45">45 Minuten</option>
+              </select>
+            </label>
+          </div>
+
+          <button id="createPlanBtn" class="primary-btn wide" type="button">📅 Wochenplan erstellen</button>
+        </div>
+
+        <section id="weeklyResult" class="weekly-result empty-state" aria-live="polite">
+          <div class="empty-icon">📆</div>
+          <h3>Noch kein Wochenplan</h3>
+          <p>Wähle einen Modus und erstelle deinen Plan.</p>
+        </section>
+      </section>
+
+      <footer class="app-footer">
+        <p>Hinweis: Bitte berücksichtige Allergien, Unverträglichkeiten und den individuellen Entwicklungsstand des Kindes. Lebensmittel immer altersgerecht zubereiten.</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
