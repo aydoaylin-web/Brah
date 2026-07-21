@@ -1,4 +1,4 @@
-const APP_PASSWORD = "Brah2026";
+const APP_PASSWORD = "OhneBrahWäreIchNichts2026";
 
 const recipes = [
   { id: 1, title: "Bananen-Hafer-Pancakes", age: 1, meals: ["fruehstueck","snack"], tags: ["vegetarisch","ohne-milch","ohne-nuesse"], time: 15, emoji: "🥞", description: "Weiche Pancakes ohne zugesetzten Zucker, ideal für kleine Hände.", url: "https://www.google.com/search?q=Bananen+Hafer+Pancakes+Kinder+ab+1+Jahr" },
