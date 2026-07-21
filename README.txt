@@ -8,7 +8,7 @@ EMPFOHLENER START AUF DEM MAC:
    - Rechtsklick auf die Datei → Öffnen → nochmals Öffnen.
 4. Die App öffnet sich automatisch im Browser unter http://localhost:8765.
 5. Klicke auf „Drück mich“.
-6. Passwort: Brah2026
+6. Passwort: "OhneBrahWäreIchNichts2026"
 
 WICHTIG ZUR AUDIO-DATEI:
 - Die enthaltene assets/notiz.mp3 ist nur ein Platzhalter.
