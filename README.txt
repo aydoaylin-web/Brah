@@ -1,22 +1,35 @@
-BRAH KINDERESSEN APP
-====================
+BRAH KINDERESSEN APP – MAC-VERSION
+==================================
 
-Start:
-1. Entpacke die ZIP-Datei.
-2. Öffne index.html per Doppelklick.
-3. Klicke auf „Drück mich“.
-4. Passwort: Brah2026
+EMPFOHLENER START AUF DEM MAC:
+1. ZIP vollständig entpacken.
+2. Im entpackten Ordner auf „App starten – Mac.command“ doppelklicken.
+3. Falls macOS die Datei blockiert:
+   - Rechtsklick auf die Datei → Öffnen → nochmals Öffnen.
+4. Die App öffnet sich automatisch im Browser unter http://localhost:8765.
+5. Klicke auf „Drück mich“.
+6. Passwort: Brah2026
 
-Eigene Audio-Notiz einsetzen:
-- Ersetze die Datei assets/notiz.mp3 durch deine eigene MP3-Datei.
+WICHTIG ZUR AUDIO-DATEI:
+- Die enthaltene assets/notiz.mp3 ist nur ein Platzhalter.
+- Ersetze sie durch deine eigene Aufnahme.
 - Der Dateiname muss exakt notiz.mp3 bleiben.
+- MP3 ist für Safari, Chrome und iPhone am zuverlässigsten.
 
-Passwort ändern:
+APP BEENDEN:
+- Schließe das Terminalfenster oder drücke dort Ctrl + C.
+
+ALTERNATIV:
+- Du kannst index.html direkt öffnen. Auf Safari können lokale file://-Seiten
+  jedoch Audio und andere Funktionen einschränken. Der Mac-Startknopf ist daher
+  die zuverlässigere Variante.
+
+PASSWORT ÄNDERN:
 - Öffne script.js in einem Texteditor.
-- Ändere in der ersten Zeile:
+- Ändere die erste Zeile:
   const APP_PASSWORD = "Brah2026";
 
-Hinweis:
-- Die App funktioniert lokal und ohne Installation.
-- Die Rezeptlinks öffnen eine Internetsuche zum jeweiligen Gericht.
-- Die lokale Passwortprüfung ist nur ein einfacher Sichtschutz und kein sicherer Server-Login.
+HINWEIS:
+- Die App selbst läuft lokal.
+- Die Links „Zum Gericht“ benötigen Internet, weil sie eine Rezeptsuche öffnen.
+- Der lokale Passwortschutz ist nur ein einfacher Sichtschutz.
